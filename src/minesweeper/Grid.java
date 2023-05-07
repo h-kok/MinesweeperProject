@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Grid {
 	private int gridDimensions;
+//	private <ArrayList<ArrayList<String>> grid;
 	
 	public Grid() {
 		this(10);
@@ -12,6 +13,8 @@ public class Grid {
 	
 	public Grid(int gridDimensions) {
 		this.gridDimensions = gridDimensions;
+//		this.createGrid();
+//		this.grid = grid;
 	}
 	
 	public ArrayList<ArrayList<String>> createGrid() {
@@ -22,12 +25,18 @@ public class Grid {
 			for (int j=0; j<gridDimensions; j++) {
 				grid.get(i).add("?");
 			}
-			System.out.println(grid.get(i));
+//			System.out.println(grid.get(i));
 		}
 		return grid;
 	}
 	
+//	public void setGrid() {
+//		this.updateGrid();
+//	}
+	
 	public ArrayList<ArrayList<String>> updateGrid(ArrayList<ArrayList<String>> grid, int[] userInput, String count) {
+//		ArrayList<ArrayList<String>> grid = this.createGrid();
+		
 		ArrayList<Integer> temp = new ArrayList<>();
 		temp.add(userInput[0]);
 		temp.add(userInput[1]);
@@ -75,8 +84,20 @@ public class Grid {
 	}
 	
 	public void printGrid(ArrayList<ArrayList<String>> grid) {
+//		ArrayList<ArrayList<String>> grid = this.createGrid();
+		
 		for (ArrayList<String> row : grid) {
-			System.out.println(row);
+			for (String el : row) {
+				System.out.print("|"+el+"|");
+			}
+			System.out.println();
 		}
 	}
+	
+	// cascade function
+	// if check for surrounding bombs count = 0
+	// filter the surrounding coordinates, none should have value of <1 or > grid dimensions, return array
+	// apply check surrounding bombs to those coordinates
+	// filter surrounding coordinates 
+	// if count = 0, repeat process.
 }

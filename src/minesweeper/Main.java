@@ -34,13 +34,14 @@ public class Main {
 		}
 		
 		System.out.println("How to play:");
-		System.out.println("1. Enter a pair of coordinates (row, column) to select an item on the grid.\n Rows run from top to bottom, starting at 1.\n Columns from left to right, starting at 1.\n");
+		System.out.println("1. Enter a pair of coordinates (row, column) to select an item on the grid.\n Rows run from top to bottom, starting at 1.\n Columns run from left to right, starting at 1.\n");
 		System.out.printf("2. There are %d hidden bombs in the grid. \nIf you select one of the bombs, game over. If you select a safe coordinate, the number revealed represents how many bombs are located in the immediate coordinates surrounding it.\n", gridDimensions);
-		System.out.println("3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n");
+		System.out.println("\n3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n");
 		
 		//make grid
 		Grid minesweeper = new Grid(gridDimensions);
 		ArrayList<ArrayList<String>> grid = minesweeper.createGrid();
+		minesweeper.printGrid(grid);
 		
 		//make bombs
 		Bomb bombs = new Bomb(gridDimensions);
@@ -54,7 +55,7 @@ public class Main {
 			
 			while (true) {
 				try {
-					System.out.println("Please enter a pair of coordinates, separated by a *space* and hit 'enter': ");
+					System.out.println("\nPlease enter a pair of coordinates, separated by a *space* and hit 'enter': ");
 					x = s.nextInt();
 					y = s.nextInt();
 					break;
@@ -84,6 +85,7 @@ public class Main {
 			} else {
 				ArrayList<ArrayList<Integer>>surroundingCoords = minesweeper.getSurroundingCoordinates(input);
 				count = minesweeper.checkForSurroundingBombs(surroundingCoords, bombLocations);
+//				minesweeper.updateGrid(input, count);
 				minesweeper.updateGrid(grid, input, count);
 				minesweeper.printGrid(grid);
 			}

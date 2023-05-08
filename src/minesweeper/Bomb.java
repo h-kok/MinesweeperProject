@@ -8,6 +8,7 @@ public class Bomb{
 	private int numOfBombs;
 	private final int PAIR = 2;
 	private final int MIN = 1;
+	private ArrayList<ArrayList<Integer>> bombLocations;
 	
 	public Bomb() {
 		this(10);
@@ -15,6 +16,7 @@ public class Bomb{
 	
 	public Bomb(int numOfBombs) {
 		this.numOfBombs = numOfBombs;
+		this.bombLocations = createBombLocations();
 	}
 	
 	public ArrayList<ArrayList<Integer>> createBombLocations() {
@@ -28,11 +30,11 @@ public class Bomb{
 			}
 			bombLocations.add(row);
 		}
-		
+		System.out.println(bombLocations);
 		return bombLocations;
 	}
 	
-	public boolean hasDuplicates(ArrayList<ArrayList<Integer>> bombLocations) {
+	public boolean hasDuplicates() {
 		Collection<ArrayList<Integer>> uniqueBombs = bombLocations.stream()
 				.distinct()
 				.collect(Collectors.toCollection(ArrayList::new));
@@ -40,18 +42,20 @@ public class Bomb{
 		return (uniqueBombs.size() != bombLocations.size()) ? true : false;
 	}
 	
-	public boolean isBombLocation(ArrayList<ArrayList<Integer>> bombLocations, int[] userInput) {
+	public boolean isBombLocation( int[] userInput) {
 		ArrayList<Integer> temp = new ArrayList<>();
 		temp.add(userInput[0]);
 		temp.add(userInput[1]);
 		
 		return (bombLocations.contains(temp)) ? true : false;
 	}
-	
-	public boolean allBombsFound(ArrayList<ArrayList<String>> grid) {
-		return (grid.stream()
-				.flatMap(row -> row.stream())
-				.filter(el -> el == "?")
-				.count() == numOfBombs) ? true : false;
+
+	public ArrayList<ArrayList<Integer>> getBombLocations() {
+		return bombLocations;
 	}
+
+	public void setBombLocations() {
+		this.bombLocations = createBombLocations();
+	}
+	
 }

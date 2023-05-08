@@ -3,18 +3,19 @@ package minesweeper;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Grid {
+public class Grid extends UserInput{
 	private int gridDimensions;
-//	private <ArrayList<ArrayList<String>> grid;
+	private ArrayList<ArrayList<String>> grid;
 	
-	public Grid() {
-		this(10);
-	}
+//	public Grid() {
+//		this(10);
+//	}
 	
-	public Grid(int gridDimensions) {
+	public Grid(int gridDimensions, int[] userInput) {
+		super(userInput);
 		this.gridDimensions = gridDimensions;
-//		this.createGrid();
-//		this.grid = grid;
+		this.grid = createGrid();
+
 	}
 	
 	public ArrayList<ArrayList<String>> createGrid() {
@@ -30,11 +31,9 @@ public class Grid {
 		return grid;
 	}
 	
-//	public void setGrid() {
-//		this.updateGrid();
-//	}
+
 	
-	public ArrayList<ArrayList<String>> updateGrid(ArrayList<ArrayList<String>> grid, int[] userInput, String count) {
+	public ArrayList<ArrayList<String>> updateGrid(String count) {
 //		ArrayList<ArrayList<String>> grid = this.createGrid();
 		
 		ArrayList<Integer> temp = new ArrayList<>();
@@ -46,7 +45,7 @@ public class Grid {
 		return grid;
 	}
 	
-	public ArrayList<ArrayList<Integer>> getSurroundingCoordinates(int[] userInput) {
+	public ArrayList<ArrayList<Integer>> getSurroundingCoordinates() {
 		ArrayList<ArrayList<Integer>> surroundingCoords = new ArrayList<>();
 		
 		surroundingCoords.add(new ArrayList<Integer>(Arrays.asList(userInput[0]-1, userInput[1]-1)));
@@ -61,11 +60,12 @@ public class Grid {
 		return surroundingCoords;
 	}
 	
-	public String checkForSurroundingBombs(ArrayList<ArrayList<Integer>>surroundingCoords, ArrayList<ArrayList<Integer>>bombLocations) {
+	public String checkForSurroundingBombs( ArrayList<ArrayList<Integer>>bombLocations) {
 		
 		int count = 0;
+//		ArrayList<ArrayList<Integer>>surroundingCoords = 
 		
-		for(ArrayList<Integer> coord : surroundingCoords) {
+		for(ArrayList<Integer> coord : getSurroundingCoordinates()) {
 			if (bombLocations.contains(coord)) {
 				count+=1;
 			}
@@ -73,7 +73,7 @@ public class Grid {
 		return Integer.toString(count);
 	}
 	
-	public ArrayList<ArrayList<String>> updateGridWithBombs(ArrayList<ArrayList<String>> grid, ArrayList<ArrayList<Integer>> bombLocations){
+	public ArrayList<ArrayList<String>> updateGridWithBombs( ArrayList<ArrayList<Integer>> bombLocations){
 		
 		for (int i=0; i<bombLocations.size(); i++) {
 			int row = bombLocations.get(i).get(0);
@@ -83,7 +83,14 @@ public class Grid {
 		return grid;
 	}
 	
-	public void printGrid(ArrayList<ArrayList<String>> grid) {
+	public boolean allBombsFound(int numOfBombs) {
+		return (grid.stream()
+				.flatMap(row -> row.stream())
+				.filter(el -> el == "?")
+				.count() == numOfBombs) ? true : false;
+	}
+	
+	public void printGrid() {
 //		ArrayList<ArrayList<String>> grid = this.createGrid();
 		
 		for (ArrayList<String> row : grid) {
@@ -93,6 +100,16 @@ public class Grid {
 			System.out.println();
 		}
 	}
+
+//	public ArrayList<ArrayList<String>> getGrid() {
+//		return grid;
+//	}
+//
+//	public void setGrid() {
+//		this.grid = updateGrid();
+//	}
+	
+	
 	
 	// cascade function
 	// if check for surrounding bombs count = 0

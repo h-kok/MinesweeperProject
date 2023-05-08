@@ -20,7 +20,7 @@ public class Main {
 		
 		while (true) {
 			try {
-				System.out.println("Enter a number to set the dimensions of the mine (min: 2): ");
+				System.out.println("\nEnter a number to set the dimensions of the mine (min: 2): ");
 				gridDimensions = s.nextInt();
 				break;
 			}
@@ -36,7 +36,7 @@ public class Main {
 			gridDimensions = s.nextInt();
 		}
 		
-		System.out.println("How to play:");
+		System.out.println("\nHow to play:");
 		System.out.println("1. Enter a pair of coordinates (row, column) to select an item on the grid.\n Rows run from top to bottom, starting at 1.\n Columns run from left to right, starting at 1.\n");
 		System.out.printf("2. There are %d hidden bombs in the grid. \nIf you select one of the bombs, game over. If you select a safe coordinate, the number revealed represents how many bombs are located in the immediate coordinates surrounding it.\n", gridDimensions);
 		System.out.println("\n3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n");

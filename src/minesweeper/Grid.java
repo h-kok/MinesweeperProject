@@ -26,15 +26,11 @@ public class Grid extends UserInput{
 			for (int j=0; j<gridDimensions; j++) {
 				grid.get(i).add("?");
 			}
-//			System.out.println(grid.get(i));
 		}
 		return grid;
 	}
 	
-
-	
 	public ArrayList<ArrayList<String>> updateGrid(String count) {
-//		ArrayList<ArrayList<String>> grid = this.createGrid();
 		
 		ArrayList<Integer> temp = new ArrayList<>();
 		temp.add(userInput[0]);
@@ -46,6 +42,7 @@ public class Grid extends UserInput{
 	}
 	
 	public ArrayList<ArrayList<Integer>> getSurroundingCoordinates() {
+		
 		ArrayList<ArrayList<Integer>> surroundingCoords = new ArrayList<>();
 		
 		surroundingCoords.add(new ArrayList<Integer>(Arrays.asList(userInput[0]-1, userInput[1]-1)));
@@ -63,7 +60,6 @@ public class Grid extends UserInput{
 	public String checkForSurroundingBombs( ArrayList<ArrayList<Integer>>bombLocations) {
 		
 		int count = 0;
-//		ArrayList<ArrayList<Integer>>surroundingCoords = 
 		
 		for(ArrayList<Integer> coord : getSurroundingCoordinates()) {
 			if (bombLocations.contains(coord)) {
@@ -91,7 +87,6 @@ public class Grid extends UserInput{
 	}
 	
 	public void printGrid() {
-//		ArrayList<ArrayList<String>> grid = this.createGrid();
 		
 		for (ArrayList<String> row : grid) {
 			for (String el : row) {
@@ -101,13 +96,6 @@ public class Grid extends UserInput{
 		}
 	}
 
-//	public ArrayList<ArrayList<String>> getGrid() {
-//		return grid;
-//	}
-//
-//	public void setGrid() {
-//		this.grid = updateGrid();
-//	}
 	
 	
 	

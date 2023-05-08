@@ -10,9 +10,9 @@ public class Bomb{
 	private final int MIN = 1;
 	private ArrayList<ArrayList<Integer>> bombLocations;
 	
-	public Bomb() {
-		this(10);
-	}
+//	public Bomb() {
+//		this(10);
+//	}
 	
 	public Bomb(int numOfBombs) {
 		this.numOfBombs = numOfBombs;
@@ -24,13 +24,13 @@ public class Bomb{
 
 		for(int i=0; i<numOfBombs; i++) {
 			ArrayList<Integer> row = new ArrayList<Integer>();
+			
 			for(int j=0; j<PAIR; j++) {
 				row.add(j);
 				row.set(j, (int)(Math.random()*(numOfBombs-MIN+1))+MIN);
 			}
 			bombLocations.add(row);
 		}
-		System.out.println(bombLocations);
 		return bombLocations;
 	}
 	

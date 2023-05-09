@@ -95,6 +95,11 @@ public class Grid extends UserInput{
 			System.out.println();
 		}
 	}
+	
+//	public ArrayList<ArrayList<String>>cascade() {
+//		getSurroundingCoordinates();
+//		
+//	}
 
 	
 	

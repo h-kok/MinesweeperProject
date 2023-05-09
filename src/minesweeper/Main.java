@@ -69,52 +69,6 @@ public class Main {
 				}
 			}
 			
-//			userInput.setUserInput(input); 
-//			System.out.println(Arrays.toString(input));
-			
-////			while (true ) {
-//				try {
-//					System.out.println("\nPlease enter a row number and hit 'enter': ");
-//					x = s.nextInt();
-////					y = s.nextInt();
-//					while (x < 1 || x > gridDimensions) {
-//						System.out.printf("Your value is out of range. \nColumn value should be from 1 to %d. \n please enter a row number:", gridDimensions);
-//						x = s.nextInt();
-//					}
-//					input[0] = x;
-////					input[1] = y;
-////					userInput.setUserInput(input);
-////					break;
-//				} catch (IndexOutOfBoundsException | InputMismatchException e) {
-//					System.out.printf("Your value is not a number. \nRow value should be from 1 to %d.", gridDimensions);
-////					s.next();
-////					continue;
-//				}
-//				
-////			}
-//			
-////			while ( true) {
-//				try {
-//					System.out.println("\nPlease enter a column number and hit 'enter': ");
-////					x = s.nextInt();
-//					y = s.nextInt();
-//					while ( y < 1 || y > gridDimensions) {
-//						System.out.printf("Your value is out of range or not a number. \nColumn value should be from 1 to %d. \nPlease enter a column number:", gridDimensions);
-//						y = s.nextInt();
-////						break;
-//					}
-////					input[0] = x;
-//					input[1] = y;
-//					
-////					break;
-//				} catch (IndexOutOfBoundsException | InputMismatchException e) {
-//					System.out.printf("Your value is out of range or not a number. \nColumn value should be from 1 to %d.", gridDimensions);
-////					s.next();
-////					continue;
-//				}
-//				
-////			}
-			
 			while (x < 1 || x > gridDimensions || y < 1 || y > gridDimensions) {
 				System.out.printf("Your value is out of range or not a number. \nColumn value should be from 1 to %d.", gridDimensions);
 				x = s.nextInt();

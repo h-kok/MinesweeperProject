@@ -12,7 +12,7 @@
 
 ## Build Steps
 
--   pull projct open in code editor, run main class
+-   Pull the project from main branch, open in any code editor (e.g. Eclipse, VS Code), run application in Main class.
 
 ## Design Goals / Approach
 
@@ -87,6 +87,8 @@
 ### 14/05/23
 
 -   Change Bomb to Bombs class to better reflect Bombs object.
+-   Update build steps.
+-   Remove Grid class extends UserInput class, add back int[] userInput as parameter to Grid methods as required.
 
 ---
 

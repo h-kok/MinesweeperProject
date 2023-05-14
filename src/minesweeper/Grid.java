@@ -3,7 +3,7 @@ package minesweeper;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Grid extends UserInput{
+public class Grid {
 	private int gridDimensions;
 	private ArrayList<ArrayList<String>> grid;
 	
@@ -11,8 +11,8 @@ public class Grid extends UserInput{
 //		this(10);
 //	}
 	
-	public Grid(int gridDimensions, int[] userInput) {
-		super(userInput);
+	public Grid(int gridDimensions) {
+		
 		this.gridDimensions = gridDimensions;
 		this.grid = createGrid();
 
@@ -30,7 +30,7 @@ public class Grid extends UserInput{
 		return grid;
 	}
 	
-	public ArrayList<ArrayList<String>> updateGrid(String count) {
+	public ArrayList<ArrayList<String>> updateGrid(String count, int[] userInput) {
 		
 		ArrayList<Integer> temp = new ArrayList<>();
 		temp.add(userInput[0]);
@@ -41,7 +41,7 @@ public class Grid extends UserInput{
 		return grid;
 	}
 	
-	public ArrayList<ArrayList<Integer>> getSurroundingCoordinates() {
+	public ArrayList<ArrayList<Integer>> getSurroundingCoordinates(int[] userInput) {
 		
 		ArrayList<ArrayList<Integer>> surroundingCoords = new ArrayList<>();
 		
@@ -57,11 +57,11 @@ public class Grid extends UserInput{
 		return surroundingCoords;
 	}
 	
-	public String checkForSurroundingBombs( ArrayList<ArrayList<Integer>>bombLocations) {
+	public String checkForSurroundingBombs( ArrayList<ArrayList<Integer>>bombLocations, int[] userInput) {
 		
 		int count = 0;
 		
-		for(ArrayList<Integer> coord : getSurroundingCoordinates()) {
+		for(ArrayList<Integer> coord : getSurroundingCoordinates(userInput)) {
 			if (bombLocations.contains(coord)) {
 				count+=1;
 			}

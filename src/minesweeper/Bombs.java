@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class Bomb{	
+public class Bombs{	
 	private int numOfBombs;
 	private final int PAIR = 2;
 	private final int MIN = 1;
@@ -14,7 +14,7 @@ public class Bomb{
 //		this(10);
 //	}
 	
-	public Bomb(int numOfBombs) {
+	public Bombs(int numOfBombs) {
 		this.numOfBombs = numOfBombs;
 		this.bombLocations = createBombLocations();
 	}

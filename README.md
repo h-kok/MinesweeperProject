@@ -6,13 +6,13 @@
 
 ## Requirements / Purpose
 
--   The MVP was to create a simplified version of the game Minesweeper to be played in the Java console. This is my first project created with Java.
+-   The MVP was to create a simplified version of the game Minesweeper to be played through a CLI. This is my first project created in Java.
 -   The purpose of project was to consolidate my learning of Java fundamentals and to research and develop an understanding of 2D array structures.
 -   The stack used is Java, as per the MVP, in order to further develop OOP skills/approach to programming.
 
 ## Build Steps
 
--   N/A
+-   pull projct open in code editor, run main class
 
 ## Design Goals / Approach
 
@@ -29,6 +29,11 @@
 
 -   Write tests for functions
 -   Create cascade function
+-   Recieved feeback for project on 10/5/23:
+    -   add play again function to game
+    -   make each element of the grid different colours, for better readability.
+    -   remove extension of UserInput class to Grid class, as not parent-child relationship
+    -   rename Bomb to Bombs class to better reflect bombs object.
 
 ---
 
@@ -78,6 +83,10 @@
 -   Refactored Grid class to store bombLocations as a variable, instead of a parameter in most functions.
 -   Attempted to complete error handling for input mismatchs when asking for user input for grid dimensions and coordinates, however still ongoing. See known issues.
 -   Updated README.
+
+### 14/05/23
+
+-   Change Bomb to Bombs class to better reflect Bombs object.
 
 ---
 

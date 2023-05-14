@@ -44,7 +44,7 @@ public class Main {
 		Grid minesweeper = new Grid(gridDimensions, input);
 		minesweeper.printGrid();
 
-		Bomb bombs = new Bomb(gridDimensions);
+		Bombs bombs = new Bombs(gridDimensions);
 		
 		while(bombs.hasDuplicates()==true) {
 			bombs.setBombLocations();

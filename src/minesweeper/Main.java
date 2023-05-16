@@ -4,14 +4,12 @@ import java.util.*;
 
 public class Main {
 	public static final String ANSI_RESET = "\u001B[0m";
-//	public static final String ANSI_BRIGHT_RED = "\u001B[31;1m";
 	public static final String ANSI_RED = "\u001B[31m";
 	public static final String ANSI_BRIGHT_YELLOW = "\u001B[33;1m";
 	public static final String ANSI_BRIGHT_GREEN = "\u001B[32;1m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_BRIGHT_MAGENTA = "\u001B[35;1m";
 	public static final String ANSI_BRIGHT_CYAN = "\u001B[36;1m";
-	public static final String ANSI_BRIGHT_BLUE = "\u001B[34;1m";
 	public static final String ANSI_BRIGHT_WHITE = "\u001B[37;1m";
 	
 	public static void main (String[] args) {

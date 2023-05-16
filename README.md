@@ -88,6 +88,10 @@
 
 -   Change Bomb to Bombs class to better reflect Bombs object.
 
+### 17/05/23
+
+-   Add colour feature to grid elements and instructions.
+
 ---
 
 ## What did you struggle with?

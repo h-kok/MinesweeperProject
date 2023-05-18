@@ -17,18 +17,25 @@ public class Main {
 		
 		int gridDimensions = 0;
 		boolean notGameOver = true;
+		String count;
+		boolean playAgain = true;
 		int x = 0;
 		int y = 0;
 		int[] input = new int[] {x,y};
 
 		UserInput userInput = new UserInput(input);
 		
+
 		String count;
 		
 		System.out.println(ANSI_BRIGHT_WHITE+"Welcome to minesweeper."+ANSI_RESET);
+
 		Scanner s = new Scanner(System.in);
 		
-		while (true) {
+		while (playAgain) {
+			System.out.println("Welcome to minesweeper.");
+			
+			while (true) {
 			try {
 				System.out.println("\nEnter a number to set the dimensions of the mine (min: 2): ");
 				gridDimensions = s.nextInt();
@@ -51,7 +58,7 @@ public class Main {
 		System.out.printf(ANSI_GREEN+"2. There are %d hidden bombs in the grid."+ ANSI_BRIGHT_CYAN+"\nIf you select one of the bombs, game over. If you select a safe coordinate, the number revealed represents how many bombs are located in the immediate coordinates surrounding it.\n"+ANSI_RESET, gridDimensions);
 		System.out.println(ANSI_BRIGHT_MAGENTA+"\n3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n"+ANSI_RESET);
 		
-		Grid minesweeper = new Grid(gridDimensions, input);
+		Grid minesweeper = new Grid(gridDimensions);
 		minesweeper.printGrid();
 
 		Bombs bombs = new Bombs(gridDimensions);
@@ -87,25 +94,51 @@ public class Main {
 			input[0] = x;
 			input[1] = y;
 			userInput.setUserInput(input);
-
-			if (bombs.isBombLocation(userInput.getUserInput()) == true) {
-				System.out.println(ANSI_BRIGHT_YELLOW+"Boom!"+ANSI_RESET+"\nGame Over. Better luck next time.");
-				minesweeper.updateGrid("!");
-				minesweeper.updateGridWithBombs(bombs.getBombLocations());
-				minesweeper.printGrid();
-				notGameOver = false;
-			} else {
-				count = minesweeper.checkForSurroundingBombs(bombs.getBombLocations());
-				minesweeper.updateGrid(count);
-				minesweeper.printGrid();
-			}
+			
 			
 			if (minesweeper.allBombsFound(gridDimensions) == true) {
 				System.out.println("Congratulations, you found all the bombs!");
 				notGameOver = false;
 			}
+			else if (bombs.isBombLocation(userInput.getUserInput()) == true) {
+				System.out.println(ANSI_BRIGHT_YELLOW+"Boom!"+ANSI_RESET+"\nGame Over. Better luck next time.");
+				minesweeper.updateGrid("!", userInput.getUserInput());
+				minesweeper.updateGridWithBombs(bombs.getBombLocations());
+				minesweeper.printGrid();
+				notGameOver = false;
+			} else {
+				count = minesweeper.checkForSurroundingBombs(bombs.getBombLocations(), userInput.getUserInput());
+				minesweeper.updateGrid(count, userInput.getUserInput());
+				minesweeper.printGrid();
+			}
+			
+			if (notGameOver==false) {
+			System.out.println("Do you want to play again? (Y/N)");
+			
+			String answer = s.next();
+			
+			if (answer == "Y") {
+				notGameOver = true;
+				System.out.println(notGameOver);
+				System.out.println("hello");
+				continue;
+			} else if (answer == "N"){
+				playAgain = false;
+				notGameOver = false;
+				System.out.println("Thanks for playing! See you next time.");
+				break;
+			}
+		}
+			
+
 		}
 
+		}
+		
+		
+		
+		
+		
 		s.close();
 	}
 }

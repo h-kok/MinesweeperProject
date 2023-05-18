@@ -24,10 +24,11 @@
 -   Error handling for input mismatch when taking in 2 user inputs.
     -   If the user enters a 'number + Nan' entry and then a 'Nan + number' entry, both numbers will be set and used as the user input and the grid is printed even though both are invalid user inputs.
     -   index out of bounds exception if one non vaild user input contains index out of bounds.
+-   Wrapping strings (e.g. making exclamation point red) in Ansi colour within functions caused unit tests to fail so colour has been removed. Need to find a way to have colour and passing tests.
 
 ## Future Goals
 
--   Write tests for functions
+-   Write more tests for Bombs class.
 -   Create cascade function
 -   Recieved feeback for project on 10/5/23:
     -   add play again function to game
@@ -90,11 +91,14 @@
 -   Update build steps.
 -   Remove Grid class extends UserInput class, add back int[] userInput as parameter to Grid methods as required.
 -   Started adding play again feature, incomplete/has bugs.
-=======
 
 ### 17/05/23
 
 -   Add colour feature to grid elements and instructions.
+
+### 19/05/23
+
+-   Add tests for Grid and Bombs classes.
 
 ---
 

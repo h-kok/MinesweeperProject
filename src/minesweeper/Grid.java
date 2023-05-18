@@ -7,6 +7,10 @@ public class Grid {
 	private int gridDimensions;
 	private ArrayList<ArrayList<String>> grid;
 	
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	
 //	public Grid() {
 //		this(10);
 //	}
@@ -36,7 +40,7 @@ public class Grid {
 		temp.add(userInput[0]);
 		temp.add(userInput[1]);
 		
-		grid.get(temp.get(0)-1).set(temp.get(1)-1, count);
+		grid.get(temp.get(0)-1).set(temp.get(1)-1, ANSI_CYAN+count+ANSI_RESET);
 		
 		return grid;
 	}
@@ -74,7 +78,7 @@ public class Grid {
 		for (int i=0; i<bombLocations.size(); i++) {
 			int row = bombLocations.get(i).get(0);
 			int column = bombLocations.get(i).get(1);
-			grid.get(row-1).set(column-1,"!");
+			grid.get(row-1).set(column-1,ANSI_RED+"!"+ANSI_RESET);
 		}
 		return grid;
 	}
@@ -90,7 +94,7 @@ public class Grid {
 		
 		for (ArrayList<String> row : grid) {
 			for (String el : row) {
-				System.out.print("|"+el+"|");
+					System.out.print("|"+el+"|");
 			}
 			System.out.println();
 		}

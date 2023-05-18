@@ -3,7 +3,17 @@ package minesweeper;
 import java.util.*;
 
 public class Main {
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_BRIGHT_YELLOW = "\u001B[33;1m";
+	public static final String ANSI_BRIGHT_GREEN = "\u001B[32;1m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_BRIGHT_MAGENTA = "\u001B[35;1m";
+	public static final String ANSI_BRIGHT_CYAN = "\u001B[36;1m";
+	public static final String ANSI_BRIGHT_WHITE = "\u001B[37;1m";
+	
 	public static void main (String[] args) {
+		
 		
 		int gridDimensions = 0;
 		boolean notGameOver = true;
@@ -15,6 +25,11 @@ public class Main {
 
 		UserInput userInput = new UserInput(input);
 		
+
+		String count;
+		
+		System.out.println(ANSI_BRIGHT_WHITE+"Welcome to minesweeper."+ANSI_RESET);
+
 		Scanner s = new Scanner(System.in);
 		
 		while (playAgain) {
@@ -38,10 +53,10 @@ public class Main {
 			gridDimensions = s.nextInt();
 		}
 		
-		System.out.println("\nHow to play:");
-		System.out.println("1. Enter a pair of coordinates (row, column) to select an item on the grid.\n Rows run from top to bottom, starting at 1.\n Columns run from left to right, starting at 1.\n");
-		System.out.printf("2. There are %d hidden bombs in the grid. \nIf you select one of the bombs, game over. If you select a safe coordinate, the number revealed represents how many bombs are located in the immediate coordinates surrounding it.\n", gridDimensions);
-		System.out.println("\n3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n");
+		System.out.println(ANSI_BRIGHT_MAGENTA+"\nHow to play:"+ANSI_RESET);
+		System.out.println(ANSI_RED+"1. Enter a pair of coordinates (row, column) to select an item on the grid."+ANSI_BRIGHT_YELLOW+"\n Rows run from top to bottom, starting at 1."+ANSI_BRIGHT_GREEN+"\n Columns run from left to right, starting at 1.\n"+ANSI_RESET);
+		System.out.printf(ANSI_GREEN+"2. There are %d hidden bombs in the grid."+ ANSI_BRIGHT_CYAN+"\nIf you select one of the bombs, game over. If you select a safe coordinate, the number revealed represents how many bombs are located in the immediate coordinates surrounding it.\n"+ANSI_RESET, gridDimensions);
+		System.out.println(ANSI_BRIGHT_MAGENTA+"\n3. Try to reveal all coordinates without setting the bombs off. Happy playing.\n"+ANSI_RESET);
 		
 		Grid minesweeper = new Grid(gridDimensions);
 		minesweeper.printGrid();
@@ -86,7 +101,7 @@ public class Main {
 				notGameOver = false;
 			}
 			else if (bombs.isBombLocation(userInput.getUserInput()) == true) {
-				System.out.println("Boom! \nGame Over. Better luck next time.");
+				System.out.println(ANSI_BRIGHT_YELLOW+"Boom!"+ANSI_RESET+"\nGame Over. Better luck next time.");
 				minesweeper.updateGrid("!", userInput.getUserInput());
 				minesweeper.updateGridWithBombs(bombs.getBombLocations());
 				minesweeper.printGrid();

@@ -18,6 +18,7 @@
 
 -   My first approach was to use 2D arrays to create and store my minesweeper grid and bomb location data. However, after realising that Java Array methods were unable to perform the operations I wanted, I converted them to 2D array lists in order to access Java ArrayList methods.
 -   I have tried to take an OOP apprach to the project, and through separation of concerns have created 3 classes (along with main class): bomb class, grid class, user input class.
+-   Unit tests have been created for functions in Grid and Bombs classes.
 
 ## Known issues
 

@@ -9,6 +9,7 @@ public class Main {
 	public static final String ANSI_BRIGHT_GREEN = "\u001B[32;1m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_BRIGHT_MAGENTA = "\u001B[35;1m";
+	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_BRIGHT_CYAN = "\u001B[36;1m";
 	public static final String ANSI_BRIGHT_WHITE = "\u001B[37;1m";
 	
@@ -101,36 +102,13 @@ public class Main {
 				minesweeper.printGrid();
 				notGameOver = false;
 			} else {
-				count = minesweeper.checkForSurroundingBombs(bombs.getBombLocations(), userInput.getUserInput());
+				count = ANSI_CYAN+minesweeper.checkForSurroundingBombs(bombs.getBombLocations(), userInput.getUserInput())+ANSI_RESET;
 				minesweeper.updateGrid(count, userInput.getUserInput());
+				System.out.println(minesweeper.updateGrid(count, userInput.getUserInput()).get(0).get(0));
 				minesweeper.printGrid();
 			}
-			
-//			if (notGameOver==false) {
-//			System.out.println("Do you want to play again? (Y/N)");
-//			
-//			String answer = s.next();
-//			
-//			if (answer == "Y") {
-//				notGameOver = true;
-//				System.out.println(notGameOver);
-//				System.out.println("hello");
-//				continue;
-//			} else if (answer == "N"){
-//				notGameOver = false;
-//				System.out.println("Thanks for playing! See you next time.");
-//				break;
-//			}
-//		}
-			
 
 		}
-
-		
-		
-		
-		
-		
 		
 		s.close();
 	}

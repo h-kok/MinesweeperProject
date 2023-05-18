@@ -18,22 +18,16 @@ public class Main {
 		int gridDimensions = 0;
 		boolean notGameOver = true;
 		String count;
-		boolean playAgain = true;
 		int x = 0;
 		int y = 0;
 		int[] input = new int[] {x,y};
 
 		UserInput userInput = new UserInput(input);
 		
-
-		String count;
-		
 		System.out.println(ANSI_BRIGHT_WHITE+"Welcome to minesweeper."+ANSI_RESET);
 
 		Scanner s = new Scanner(System.in);
 		
-		while (playAgain) {
-			System.out.println("Welcome to minesweeper.");
 			
 			while (true) {
 			try {
@@ -112,28 +106,27 @@ public class Main {
 				minesweeper.printGrid();
 			}
 			
-			if (notGameOver==false) {
-			System.out.println("Do you want to play again? (Y/N)");
-			
-			String answer = s.next();
-			
-			if (answer == "Y") {
-				notGameOver = true;
-				System.out.println(notGameOver);
-				System.out.println("hello");
-				continue;
-			} else if (answer == "N"){
-				playAgain = false;
-				notGameOver = false;
-				System.out.println("Thanks for playing! See you next time.");
-				break;
-			}
-		}
+//			if (notGameOver==false) {
+//			System.out.println("Do you want to play again? (Y/N)");
+//			
+//			String answer = s.next();
+//			
+//			if (answer == "Y") {
+//				notGameOver = true;
+//				System.out.println(notGameOver);
+//				System.out.println("hello");
+//				continue;
+//			} else if (answer == "N"){
+//				notGameOver = false;
+//				System.out.println("Thanks for playing! See you next time.");
+//				break;
+//			}
+//		}
 			
 
 		}
 
-		}
+		
 		
 		
 		
